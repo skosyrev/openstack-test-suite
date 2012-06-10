@@ -1,19 +1,23 @@
 openstack-test-suite
 ====================
 
-This suite was created to test functionality of openstack.
+This suite was created for integration testing of Openstack features.
 
 Prerequisites
 -------------
 Before test installation, make sure that you have installed the following tools: Lettuce and Bunch.
 It is important that you need fork of Lettuce supplied by Grid Dynamics.
 
-Use the one from deliverable or clone Lettuce_ from GitHub::
+Use the one from deliverable or clone Lettuce_ from GitHub (commit 8feed35 or newer)::
 
   > cd lettuce
   > pip install .
 
-Then install main testing tool Bunch. Use source code from deliverable or clone tool_ from GitHub::
+Then install main testing tool Bunch. Use source code from deliverable or clone tool_ from GitHub. Install it::
+
+  > cd bunch
+  > pip install .
+
 
 To run tests you need:
 
@@ -89,8 +93,21 @@ Troubleshooting
 ---------------
 Commands executed by tests are logged into  ./result_dir/bash.log in details, so you can always repeat actions performed to debug them.
 
+
 Known Issues
 ------------
+Essex release of OpenStack has a number of regression in cleanup operations.
+E.g.::
+
+  * https://bugs.launchpad.net/nova/+bug/967840
+  * https://bugs.launchpad.net/nova/+bug/952176
+
+
+It may affect test cleanup code: teardown script fails due to bug and and on next execution tests will fail.
+The workaround is to perform more aggressive cleanup prior test run. Sample cleanup script is included: `reinstall` is Bash script which quickly reinstalls Openstack. Do not use it if re-installation is not appropriate for you.
+
+
+
 
 
 
