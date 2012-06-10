@@ -2,14 +2,14 @@
 
 from setuptools import setup
 
-required_modules = ['lettuce', 'pexpect']
+required_modules = ['pexpect', 'IPy']
 
 setup(name='openstack-core-test',
-      version='0.0.1',
-      description='Grid Dynamics OpenStack Core test suite',
+      version='1.0.0',
+      description='Grid Dynamics OpenStack test suite',
       author=u'Grid Dynamics',
-      author_email='skosyrev@griddynamics.com',
-      url='http://github.com/TODO',
+      author_email='openstack@griddynamics.com',
+      url='http://griddynamics.com/',
       packages=['openstack_core_test', 'openstack_core_test.utils'],
       install_requires=required_modules
       )

@@ -235,7 +235,7 @@ class EscalatePermissions(object):
             tmp_file_path = tmp_file.name
         out = bash("sudo dd if=%s of=%s" % (tmp_file_path, filename))
         bash("rm -f %s" % tmp_file_path)
-        return out.successful() and os.path.exists(filename)
+        return out.successful()
 
 
 class mysql_cli(object):
